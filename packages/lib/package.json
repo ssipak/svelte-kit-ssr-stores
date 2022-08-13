@@ -1,0 +1,23 @@
+{
+  "name": "svelte-kit-ssr-stores",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/index.es.js",
+  "svelte": "dist/index.es.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "vite": "^3.0.4",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@sveltejs/kit": "^1.0.0-next.403"
+  },
+  "files": [
+    "dist/**/*",
+    "types/**/*"
+  ]
+}

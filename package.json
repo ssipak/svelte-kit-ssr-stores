@@ -1,26 +1,19 @@
 {
-  "name": "svelte-kit-ssr-stores",
-  "version": "0.0.0",
-  "type": "module",
-  "main": "dist/index.es.js",
-  "svelte": "dist/index.es.js",
-  "types": "types/index.d.ts",
+  "name": "svelte-kit-ssr-stores-workspace",
+  "workspaces": [
+    "packages/lib",
+    "packages/test-server"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build-lib": "npm run build --workspace=svelte-kit-ssr-stores",
+    "publish-lib": "npm publish --workspace=svelte-kit-ssr-stores",
+    "dev-server": "npm run dev --workspace=test-server",
+    "test-server": "npm run start --workspace=test-server",
+    "test": "npm run test --workspace=test-server",
+    "report": "npm run test --workspace=test-server",
+    "record-test": "npm run record-test --workspace=test-server"
   },
   "devDependencies": {
-    "prettier": "^2.7.1",
-    "svelte-preprocess": "^4.10.7",
-    "typescript": "^4.5.4",
-    "vite": "^3.0.4"
-  },
-  "dependencies": {
-    "@sveltejs/kit": "^1.0.0-next.403"
-  },
-  "files": [
-    "dist/**/*",
-    "types/**/*"
-  ]
+    "prettier": "^2.7.1"
+  }
 }

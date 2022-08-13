@@ -1,6 +1,6 @@
-## Purpose
+## Svelte Kit SSR Stores
 
-Global state management library for Svelte Kit with SSR support.
+The global state management library for Svelte Kit with the SSR support.
 
 ## Installation
 
@@ -10,11 +10,14 @@ npm install svelte-kit-ssr-stores
 
 ## Usage
 
-Say, we want to isolate a portion of the app state and make it accessible from components
-that sit deep in the tree. We also want this portion of state be isolated on per request bases.
+Say, we want to isolate a portion of the app state and make it accessible in components throughout the app.
+Svelte stores serve this goal well in the browser context.
+Unfortunately on the server side, an exported store will be shared among all the request handlers,
+which means that potentially sensible user data will be accessible to all concurrent and consequent request. 
 
-Wrapping built-in Svelte stores up with `defineSessionable` helper let us use it inside load functions,
-components of any level of nesting, makes data inaccessible outside the current session scope.
+As an easy and convenient solution this library provides `defineSessionable` helper.
+It converts a factory method into a callable Proxy object that provides access to all the fields and methods of
+an object that is created by the factory method and bound to the current session.
 
 ### Basic store example
 
@@ -83,3 +86,7 @@ export const usersCountStore = defineSessionable({usersStore}, ({usersStore}) =>
 
 <div>Users count: {usersCount}</div>
 ```
+
+## Alternatives
+
+[svelte-kit-isolated-store](https://github.com/x3rAx/svelte-kit-isolated-stores)
