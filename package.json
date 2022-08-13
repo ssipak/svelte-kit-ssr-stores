@@ -1,17 +1,16 @@
 {
   "name": "svelte-kit-ssr-stores-workspace",
   "workspaces": [
-    "packages/lib",
-    "packages/test-server"
+    "packages/*"
   ],
   "scripts": {
-    "build-lib": "npm run build --workspace=svelte-kit-ssr-stores",
-    "publish-lib": "npm publish --workspace=svelte-kit-ssr-stores",
-    "dev-server": "npm run dev --workspace=test-server",
-    "test-server": "npm run start --workspace=test-server",
-    "test": "npm run test --workspace=test-server",
-    "report": "npm run test --workspace=test-server",
-    "record-test": "npm run record-test --workspace=test-server"
+    "build-lib": "npm run build -w svelte-kit-ssr-stores",
+    "publish-lib": "npm publish -w svelte-kit-ssr-stores",
+    "dev-server": "npm run dev -w test-server",
+    "test-server": "npm run start -w test-server",
+    "test": "npm run test -w test-server",
+    "report": "npm run test -w test-server",
+    "record-test": "npm run record-test -w test-server"
   },
   "devDependencies": {
     "prettier": "^2.7.1"
